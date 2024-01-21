@@ -4,6 +4,11 @@ import { puppyBowlApi } from "../API/puppyBowlApi";
 const playerSlice = createSlice({
   name: "player",
   initialState: [],
+  reducers: {
+    removePlayer: (state, { payload }) => {
+      return state.filter((i) => i.id !== Number(payload.id));
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       puppyBowlApi.endpoints.fetchPlayers.matchFulfilled,
@@ -15,3 +20,4 @@ const playerSlice = createSlice({
 });
 
 export default playerSlice.reducer;
+export const { removePlayer, addPlayer } = playerSlice.actions;

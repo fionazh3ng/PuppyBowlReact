@@ -5,7 +5,7 @@ import playerSlice from "../components/playerSlice";
 export const store = configureStore({
   reducer: {
     [puppyBowlApi.reducerPath]: puppyBowlApi.reducer,
-    player: playerSlice,
+    players: playerSlice,
   },
 
   middleware: (getDefaultMiddleware) =>

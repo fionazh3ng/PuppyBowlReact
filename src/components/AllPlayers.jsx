@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useFetchPlayersQuery } from "../API/puppyBowlApi";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 export default function AllPlayers() {
-  const player = useSelector((state) => state.player);
   const { data = {}, error, isLoading } = useFetchPlayersQuery();
+  const players = useSelector((state) => state.players);
 
   if (isLoading) {
     <p>Loading...</p>;
@@ -17,13 +18,14 @@ export default function AllPlayers() {
 
   return (
     <div className="all-players">
-      {player.map((player) => (
+      {players.map((player) => (
         <div key={player.id} className="player-card">
           <img
             className="player-image"
             src={player.imageUrl}
             alt={player.name}
           />
+          <Link to={`/players/${player.id}`}>See Detail</Link>
 
           <div className="player-details">
             <h2> {player.name} </h2>

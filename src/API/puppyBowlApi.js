@@ -9,7 +9,35 @@ export const puppyBowlApi = createApi({
     fetchPlayers: builder.query({
       query: () => "/players",
     }),
+
+    fetchPlayer: builder.query({
+      query: (id) => "/players/" + id,
+    }),
+
+    fetchPlyerForm: builder.query({
+      query: () => "/players/playerform",
+    }),
+
+    addNewPlayer: builder.mutation({
+      query: (payload) => ({
+        url: "/players",
+        method: "POST",
+        body: payload,
+      }),
+    }),
+
+    deletePlayer: builder.mutation({
+      query: (id) => ({
+        url: "/players/" + id,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useFetchPlayersQuery } = puppyBowlApi;
+export const {
+  useFetchPlayersQuery,
+  useFetchPlayerQuery,
+  useAddNewPlayerMutation,
+  useDeletePlayerMutation,
+} = puppyBowlApi;
