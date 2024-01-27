@@ -26,7 +26,7 @@ body {
 /* Styling for individual player cards. */
 .player-card {
   width: 360px; /* The width of the card. */
-  height: 380px; /* The height of the card. */
+  height: auto; /* The height of the card. */
   margin: 10px; /* The margin around the card. */
   background-color: antiquewhite; /* The background color of the card. */
   border: #000 solid 3px; /* The border around the card. */
